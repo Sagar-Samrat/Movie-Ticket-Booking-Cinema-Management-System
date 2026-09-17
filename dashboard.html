@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>CineBook | User Dashboard</title>
+
+
+    <!-- Bootstrap CSS -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- Bootstrap Icons -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+
+    <!-- Dashboard CSS -->
+
+    <link
+        rel="stylesheet"
+        href="./dashborad.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     NAVBAR
+================================================== -->
+
+<nav class="navbar navbar-expand-lg cine-navbar">
+
+    <div class="container-fluid px-lg-5">
+
+
+        <!-- LOGO -->
+
+        <a
+            href="index.html"
+            class="navbar-brand cine-logo"
+        >
+
+            <span class="logo-icon">
+                <i class="bi bi-film"></i>
+            </span>
+
+            <span class="logo-name">
+                Cine<span>Book</span>
+            </span>
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+
+        <div class="dashboard-nav">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="movies.html">
+                Movies
+            </a>
+
+            <a href="theatres.html">
+                Theatres
+            </a>
+
+            <a href="#" class="active">
+                Dashboard
+            </a>
+
+        </div>
+
+
+        <!-- USER -->
+
+        <div class="user-menu">
+
+            <div class="user-avatar">
+                SS
+            </div>
+
+            <div class="user-name">
+
+                <strong>
+                    Sagar Samrat
+                </strong>
+
+                <small>
+                    Movie Lover
+                </small>
+
+            </div>
+
+            <i class="bi bi-chevron-down"></i>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ==================================================
+     DASHBOARD
+================================================== -->
+
+<main class="dashboard-container">
+
+
+    <!-- ==================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="dashboard-sidebar">
+
+
+        <div class="sidebar-profile">
+
+            <div class="large-avatar">
+                SS
+            </div>
+
+            <h5>
+                Sagar Samrat
+            </h5>
+
+            <p>
+                sagar@example.com
+            </p>
+
+        </div>
+
+
+        <div class="sidebar-menu">
+
+            <a
+                href="#"
+                class="sidebar-link active"
+            >
+                <i class="bi bi-grid-1x2-fill"></i>
+
+                Dashboard
+            </a>
+
+
+            <a
+                href="#profile"
+                class="sidebar-link"
+            >
+                <i class="bi bi-person"></i>
+
+                My Profile
+            </a>
+
+
+            <a
+                href="#bookings"
+                class="sidebar-link"
+            >
+                <i class="bi bi-ticket-perforated"></i>
+
+                My Bookings
+            </a>
+
+
+            <a
+                href="#upcoming"
+                class="sidebar-link"
+            >
+                <i class="bi bi-calendar-event"></i>
+
+                Upcoming Tickets
+            </a>
+
+
+            <a
+                href="movies.html"
+                class="sidebar-link"
+            >
+                <i class="bi bi-film"></i>
+
+                Browse Movies
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="sidebar-link">
+
+                <i class="bi bi-box-arrow-right"></i>
+
+                Logout
+
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ==================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <section class="dashboard-content">
+
+
+        <!-- WELCOME -->
+
+        <div class="welcome-section">
+
+            <div>
+
+                <p class="welcome-label">
+                    USER DASHBOARD
+                </p>
+
+                <h1>
+                    Welcome back,
+                    <span>Sagar!</span> 👋
+                </h1>
+
+                <p class="welcome-text">
+
+                    Manage your bookings, tickets and
+                    movie activity from one place.
+
+                </p>
+
+            </div>
+
+
+            <a
+                href="movies.html"
+                class="btn book-btn"
+            >
+
+                <i class="bi bi-ticket-perforated"></i>
+
+                Book Movie
+
+            </a>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             STAT CARDS
+        ================================================== -->
+
+        <div class="row g-4 mb-4">
+
+
+            <!-- TOTAL BOOKINGS -->
+
+            <div class="col-xl-3 col-md-6">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon red">
+
+                        <i class="bi bi-ticket-perforated-fill"></i>
+
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Total Bookings
+                        </p>
+
+                        <h2>
+                            12
+                        </h2>
+
+                        <small>
+                            All time bookings
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- UPCOMING -->
+
+            <div class="col-xl-3 col-md-6">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+
+                        <i class="bi bi-calendar-check-fill"></i>
+
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Upcoming
+                        </p>
+
+                        <h2>
+                            2
+                        </h2>
+
+                        <small>
+                            Active tickets
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MOVIES -->
+
+            <div class="col-xl-3 col-md-6">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+
+                        <i class="bi bi-film"></i>
+
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Movies Watched
+                        </p>
+
+                        <h2>
+                            18
+                        </h2>
+
+                        <small>
+                            Movies enjoyed
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SPENDING -->
+
+            <div class="col-xl-3 col-md-6">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+
+                        <i class="bi bi-wallet2"></i>
+
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Total Spent
+                        </p>
+
+                        <h2>
+                            ₹4,280
+                        </h2>
+
+                        <small>
+                            On movie tickets
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             UPCOMING TICKET + PROFILE
+        ================================================== -->
+
+        <div class="row g-4 mb-4">
+
+
+            <!-- UPCOMING TICKET -->
+
+            <div
+                class="col-lg-8"
+                id="upcoming"
+            >
+
+                <div class="section-card upcoming-card">
+
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <p class="card-label">
+                                NEXT SHOW
+                            </p>
+
+                            <h3>
+                                Your Upcoming Ticket
+                            </h3>
+
+                        </div>
+
+                        <span class="confirmed-badge">
+                            <i class="bi bi-check-circle-fill"></i>
+                            Confirmed
+                        </span>
+
+                    </div>
+
+
+                    <div class="ticket-content">
+
+
+                        <!-- MOVIE POSTER -->
+
+                        <div class="movie-poster">
+
+                            <i class="bi bi-film"></i>
+
+                        </div>
+
+
+                        <!-- MOVIE DETAILS -->
+
+                        <div class="ticket-details">
+
+                            <h2>
+                                Avengers: Endgame
+                            </h2>
+
+                            <p class="movie-meta">
+                                Action • Adventure • 3h 1m
+                            </p>
+
+
+                            <div class="ticket-info">
+
+                                <div>
+
+                                    <i class="bi bi-building"></i>
+
+                                    <div>
+
+                                        <small>
+                                            Theatre
+                                        </small>
+
+                                        <strong>
+                                            PVR Cinemas
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div>
+
+                                    <i class="bi bi-calendar3"></i>
+
+                                    <div>
+
+                                        <small>
+                                            Date
+                                        </small>
+
+                                        <strong>
+                                            20 September 2026
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div>
+
+                                    <i class="bi bi-clock"></i>
+
+                                    <div>
+
+                                        <small>
+                                            Showtime
+                                        </small>
+
+                                        <strong>
+                                            7:30 PM
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div>
+
+                                    <i class="bi bi-grid-3x3-gap"></i>
+
+                                    <div>
+
+                                        <small>
+                                            Seats
+                                        </small>
+
+                                        <strong>
+                                            A4, A5
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="ticket-footer">
+
+                        <div>
+
+                            <span>
+                                Booking ID
+                            </span>
+
+                            <strong>
+                                CB-2026-00125
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Total Amount
+                            </span>
+
+                            <strong>
+                                ₹400
+                            </strong>
+
+                        </div>
+
+
+                        <a
+                            href="#"
+                            class="view-ticket"
+                        >
+
+                            View Ticket
+
+                            <i class="bi bi-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROFILE -->
+
+            <div
+                class="col-lg-4"
+                id="profile"
+            >
+
+                <div class="section-card profile-card">
+
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <p class="card-label">
+                                ACCOUNT
+                            </p>
+
+                            <h3>
+                                My Profile
+                            </h3>
+
+                        </div>
+
+                        <i class="bi bi-pencil-square edit-icon"></i>
+
+                    </div>
+
+
+                    <div class="profile-main">
+
+                        <div class="profile-avatar">
+                            SS
+                        </div>
+
+                        <h4>
+                            Sagar Samrat
+                        </h4>
+
+                        <p>
+                            sagar@example.com
+                        </p>
+
+                    </div>
+
+
+                    <div class="profile-details">
+
+                        <div>
+
+                            <i class="bi bi-envelope"></i>
+
+                            <span>
+                                sagar@example.com
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <i class="bi bi-telephone"></i>
+
+                            <span>
+                                +91 98765 43210
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <i class="bi bi-geo-alt"></i>
+
+                            <span>
+                                India
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <a
+                        href="#"
+                        class="profile-btn"
+                    >
+
+                        View Profile
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             RECENT BOOKINGS
+        ================================================== -->
+
+        <div
+            class="section-card"
+            id="bookings"
+        >
+
+
+            <div class="card-heading">
+
+                <div>
+
+                    <p class="card-label">
+                        BOOKING HISTORY
+                    </p>
+
+                    <h3>
+                        Recent Bookings
+                    </h3>
+
+                </div>
+
+
+                <a
+                    href="#"
+                    class="view-all"
+                >
+                    View All
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <div class="table-responsive">
+
+                <table class="table booking-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Movie
+                            </th>
+
+                            <th>
+                                Theatre
+                            </th>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Seats
+                            </th>
+
+                            <th>
+                                Amount
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+
+                        <!-- BOOKING 1 -->
+
+                        <tr>
+
+                            <td>
+
+                                <div class="movie-table-info">
+
+                                    <div class="mini-poster">
+                                        🎬
+                                    </div>
+
+                                    <div>
+
+                                        <strong>
+                                            Avengers: Endgame
+                                        </strong>
+
+                                        <small>
+                                            Action
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+                                PVR Cinemas
+                            </td>
+
+
+                            <td>
+                                20 Sep 2026
+                            </td>
+
+
+                            <td>
+                                A4, A5
+                            </td>
+
+
+                            <td>
+                                ₹400
+                            </td>
+
+
+                            <td>
+
+                                <span class="status confirmed">
+                                    Confirmed
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- BOOKING 2 -->
+
+                        <tr>
+
+                            <td>
+
+                                <div class="movie-table-info">
+
+                                    <div class="mini-poster">
+                                        🚀
+                                    </div>
+
+                                    <div>
+
+                                        <strong>
+                                            Interstellar
+                                        </strong>
+
+                                        <small>
+                                            Sci-Fi
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+                                INOX
+                            </td>
+
+
+                            <td>
+                                17 Sep 2026
+                            </td>
+
+
+                            <td>
+                                B3, B4
+                            </td>
+
+
+                            <td>
+                                ₹400
+                            </td>
+
+
+                            <td>
+
+                                <span class="status completed">
+                                    Completed
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- BOOKING 3 -->
+
+                        <tr>
+
+                            <td>
+
+                                <div class="movie-table-info">
+
+                                    <div class="mini-poster">
+                                        🦸
+                                    </div>
+
+                                    <div>
+
+                                        <strong>
+                                            Spider-Man
+                                        </strong>
+
+                                        <small>
+                                            Action
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+                                Cinepolis
+                            </td>
+
+
+                            <td>
+                                10 Sep 2026
+                            </td>
+
+
+                            <td>
+                                C2, C3
+                            </td>
+
+
+                            <td>
+                                ₹360
+                            </td>
+
+
+                            <td>
+
+                                <span class="status completed">
+                                    Completed
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             QUICK ACTIONS
+        ================================================== -->
+
+        <div class="quick-section">
+
+            <h3>
+                Quick Actions
+            </h3>
+
+
+            <div class="row g-3">
+
+
+                <div class="col-md-4">
+
+                    <a
+                        href="movies.html"
+                        class="quick-card"
+                    >
+
+                        <div class="quick-icon">
+                            <i class="bi bi-film"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Browse Movies
+                            </strong>
+
+                            <span>
+                                Explore latest movies
+                            </span>
+
+                        </div>
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <a
+                        href="theatres.html"
+                        class="quick-card"
+                    >
+
+                        <div class="quick-icon">
+                            <i class="bi bi-building"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Find Theatres
+                            </strong>
+
+                            <span>
+                                Find cinemas near you
+                            </span>
+
+                        </div>
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <a
+                        href="#bookings"
+                        class="quick-card"
+                    >
+
+                        <div class="quick-icon">
+                            <i class="bi bi-ticket-perforated"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Booking History
+                            </strong>
+
+                            <span>
+                                Check your previous tickets
+                            </span>
+
+                        </div>
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+</main>
+
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer class="dashboard-footer">
+
+    <div class="container-fluid px-lg-5">
+
+        <div class="d-flex justify-content-between flex-wrap gap-3">
+
+            <p>
+                © 2026 CineBook. All Rights Reserved.
+            </p>
+
+            <p>
+                Movie Ticket Booking & Cinema Management System
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
