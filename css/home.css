@@ -1,0 +1,577 @@
+/* =====================================================
+   GENERAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0d0d0d;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.cine-navbar {
+    background: rgba(10, 10, 10, 0.97);
+    padding: 18px 0;
+}
+
+.cine-logo {
+    color: #ffffff !important;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.cine-logo span {
+    color: #e50914;
+}
+
+.logo-icon {
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 20px;
+    transition: 0.3s;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #e50914;
+}
+
+.login-btn {
+    background: #e50914;
+    color: white !important;
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.login-btn:hover {
+    background: #b20710;
+}
+
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero-section {
+    min-height: 760px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    background-image: url(
+        "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=formathttps://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=2000&q=85fit=crophttps://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=2000&q=85w=2000https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=2000&q=85q=85"
+    );
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.93),
+            rgba(0, 0, 0, 0.68),
+            rgba(0, 0, 0, 0.20)
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 70px;
+}
+
+.hero-small-title {
+    color: #dddddd;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 {
+    font-size: clamp(50px, 6vw, 78px);
+    line-height: 1.05;
+    font-weight: 800;
+}
+
+.hero-text {
+    color: #dddddd;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 620px;
+    margin-top: 25px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.explore-btn {
+    background: #e50914;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 7px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.explore-btn:hover {
+    background: #b20710;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.booking-btn {
+    background: white;
+    color: #111111;
+    padding: 14px 28px;
+    border-radius: 7px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.booking-btn:hover {
+    background: #eeeeee;
+    color: #111111;
+    transform: translateY(-3px);
+}
+
+
+
+/* =====================================================
+   POPULAR MOVIES
+===================================================== */
+
+.movies-section {
+    background: #0d0d0d;
+    padding: 85px 0;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.section-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.view-all {
+    color: #e50914;
+    font-weight: 600;
+}
+
+.view-all:hover {
+    color: white;
+}
+
+.movie-card {
+    background: #181818;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 100%;
+    transition: 0.3s;
+}
+
+.movie-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+.movie-image {
+    height: 330px;
+    position: relative;
+    overflow: hidden;
+}
+
+.movie-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.movie-card:hover img {
+    transform: scale(1.07);
+}
+
+.rating {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    padding: 6px 10px;
+
+    border-radius: 5px;
+
+    font-size: 13px;
+}
+
+.rating i {
+    color: #ffc107;
+}
+
+.movie-details {
+    padding: 20px;
+}
+
+.movie-details h5 {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.movie-details p {
+    color: #999999;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.movie-btn {
+    display: inline-block;
+
+    background: #e50914;
+
+    color: white;
+
+    padding: 9px 18px;
+
+    border-radius: 5px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.movie-btn:hover {
+    background: #b20710;
+    color: white;
+}
+
+
+
+/* =====================================================
+   FEATURES
+===================================================== */
+
+.features-section {
+    background: #151515;
+    padding: 90px 0;
+}
+
+.section-title p,
+.section-label {
+    color: #e50914;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.section-title h2 {
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.feature-card {
+    background: #1d1d1d;
+    padding: 40px 25px;
+    text-align: center;
+    border-radius: 10px;
+    height: 100%;
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-7px);
+    background: #222222;
+}
+
+.feature-icon {
+    font-size: 45px;
+    color: #e50914;
+    margin-bottom: 20px;
+}
+
+.feature-card h4 {
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: #999999;
+    line-height: 1.7;
+}
+
+
+
+/* =====================================================
+   THEATRE
+===================================================== */
+
+.theatre-section {
+    background: #0d0d0d;
+    padding: 90px 0;
+}
+
+.theatre-image {
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.theatre-image img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.theatre-image:hover img {
+    transform: scale(1.05);
+}
+
+.theatre-content {
+    padding: 40px;
+}
+
+.theatre-content h2 {
+    font-size: 43px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 15px 0 20px;
+}
+
+.theatre-content > p:not(.section-label) {
+    color: #999999;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+
+
+/* =====================================================
+   OFFER
+===================================================== */
+
+.offer-section {
+    background: #151515;
+    padding: 70px 0;
+}
+
+.offer-box {
+    background: linear-gradient(
+        110deg,
+        #260306,
+        #4a080d
+    );
+
+    border-radius: 12px;
+
+    padding: 45px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+}
+
+.offer-box h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 12px 0;
+}
+
+.offer-box p:not(.section-label) {
+    color: #cccccc;
+}
+
+.offer-btn {
+    background: white;
+    color: #111111;
+    padding: 13px 25px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.offer-btn:hover {
+    background: #eeeeee;
+    color: #111111;
+}
+
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    background: #080808;
+    padding: 65px 0 25px;
+}
+
+.footer-logo {
+    color: white;
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.footer p {
+    color: #888888;
+    line-height: 1.7;
+    max-width: 450px;
+    margin-top: 18px;
+}
+
+.footer h5 {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer a {
+    color: #888888;
+    display: block;
+    margin-bottom: 12px;
+    transition: 0.3s;
+}
+
+.footer a:hover {
+    color: #e50914;
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+
+    background: #1d1d1d;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icons i {
+    font-size: 18px;
+}
+
+.footer hr {
+    border-color: #333333;
+    margin-top: 45px;
+}
+
+.copyright {
+    text-align: center;
+    color: #777777 !important;
+    max-width: none !important;
+    font-size: 14px;
+}
+
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 991px) {
+
+    .navbar-nav .nav-link {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .login-btn {
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .hero-section {
+        min-height: 680px;
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .hero-text {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: fit-content;
+    }
+
+    .section-header h2 {
+        font-size: 26px;
+    }
+
+    .theatre-content {
+        padding: 30px 0;
+    }
+
+    .theatre-content h2 {
+        font-size: 35px;
+    }
+
+    .offer-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
