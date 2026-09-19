@@ -18,7 +18,8 @@ a {
     text-decoration: none;
 }
 
-#NavBar
+
+/* NavBar */
 
 .cine-navbar {
     background: rgba(10, 10, 10, 0.97);
@@ -67,7 +68,7 @@ a {
 
 
 
-#Hero
+/* Hero */
 
 .hero-section {
     min-height: 760px;
@@ -162,7 +163,7 @@ a {
 
 
 
-#Popular
+/* Popular Movies */
 
 .movies-section {
     background: #0d0d0d;
@@ -278,7 +279,7 @@ a {
 
 
 
-#Features
+/* Features */
 
 .features-section {
     background: #151515;
@@ -331,7 +332,7 @@ a {
 
 
 
-#Theatre
+/* Theatre */
 
 .theatre-section {
     background: #0d0d0d;
@@ -382,7 +383,7 @@ a {
 
 
 
-#Offer
+/* Offer */
 
 .food-section {
     background: #111111;
@@ -519,8 +520,7 @@ a {
 }
 
 
-
-#Footer
+/* Footer */
 
 .footer {
     background: #080808;
@@ -592,7 +592,7 @@ a {
 
 
 
-#Responsive
+/* Responsive */
 
 @media (max-width: 991px) {
 
