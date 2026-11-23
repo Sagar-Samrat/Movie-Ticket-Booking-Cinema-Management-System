@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CineVerse | Book Tickets</title>
+
+    <link rel="stylesheet" href="../css/movies.css">
+    <link rel="stylesheet" href="../css/booking.css">
+</head>
+
+<body>
+
+    <div class="booking-container">
+
+        <a href="movies.html" class="back-btn">← Back to Movies</a>
+
+        <div class="booking-card">
+
+            <h1>Book Your Tickets 🎬</h1>
+            <p class="booking-subtitle">Complete your movie booking</p>
+
+            <form id="booking-form">
+
+                <div class="form-group">
+                    <label>Selected Movie</label>
+                    <input type="text" id="movie-name" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label>Select Theatre</label>
+                    <select id="theatre" required>
+                        <option value="">Choose Theatre</option>
+                        <option value="PVR Cinemas">PVR Cinemas</option>
+                        <option value="INOX">INOX</option>
+                        <option value="Cinepolis">Cinepolis</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Select Date</label>
+                    <input type="date" id="booking-date" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Select Show Time</label>
+                    <select id="show-time" required>
+                        <option value="">Choose Show Time</option>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="1:30 PM">1:30 PM</option>
+                        <option value="5:00 PM">5:00 PM</option>
+                        <option value="8:30 PM">8:30 PM</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Number of Tickets</label>
+                    <input type="number" id="ticket-count" min="1" max="10" value="1" required>
+                </div>
+
+                <div class="price-box">
+                    <p>Price per ticket: ₹200</p>
+                    <h2>Total Amount: ₹<span id="total-price">200</span></h2>
+                </div>
+
+                <button type="submit" class="confirm-btn">
+                    Confirm Booking
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="../js/booking.js"></script>
+
+</body>
+</html>
