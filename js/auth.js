@@ -91,6 +91,67 @@
         safeSet(localStorage, USERS_KEY, JSON.stringify(users));
     }
 
+    function normalizeSeedUser(raw) {
+        if (!raw || !raw.email) {
+            return null;
+        }
+        const cleanEmail = normalizeEmail(raw.email);
+        const passwordHash = raw.passwordHash ||
+            (raw.password ? hashPassword(raw.password, cleanEmail) : '');
+        if (!passwordHash) {
+            return null;
+        }
+        return {
+            id: raw.id || ('usr_' + cleanEmail.replace(/[^a-z0-9]/g, '')),
+            name: String(raw.name || 'CineVerse Member').trim(),
+            email: cleanEmail,
+            phone: String(raw.phone || '').trim(),
+            tier: raw.tier || 'CineVerse Member',
+            provider: raw.provider || 'email',
+            passwordHash: passwordHash,
+            createdAt: raw.createdAt || new Date().toISOString()
+        };
+    }
+
+    async function loadSeedUsersFromJson() {
+        if (typeof fetch !== 'function') {
+            return getUsers();
+        }
+        try {
+            const response = await fetch('../data/users.json');
+            if (!response.ok) {
+                throw new Error('HTTP ' + response.status);
+            }
+            const seedList = await response.json();
+            if (!Array.isArray(seedList)) {
+                return getUsers();
+            }
+
+            const existing = getUsers();
+            const existingEmails = new Set(existing.map(u => normalizeEmail(u.email)));
+            let changed = false;
+
+            seedList.forEach(item => {
+                const normalized = normalizeSeedUser(item);
+                if (normalized && !existingEmails.has(normalized.email)) {
+                    existing.push(normalized);
+                    existingEmails.add(normalized.email);
+                    changed = true;
+                }
+            });
+
+            if (changed) {
+                saveUsers(existing);
+            }
+            return existing;
+        } catch (err) {
+            // Graceful fallback when opened directly over file:// without a local server
+            return getUsers();
+        }
+    }
+
+    const readyPromise = loadSeedUsersFromJson();
+
     function createSessionPayload(user) {
         return {
             id: user.id,
@@ -430,6 +491,7 @@
     }
 
     window.CineAuth = {
+        ready: readyPromise,
         getUsers: getUsers,
         registerUser: registerUser,
         loginUser: loginUser,

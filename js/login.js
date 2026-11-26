@@ -315,24 +315,26 @@
         }
 
         setLoading(loginSubmitBtn, true);
-        setTimeout(function () {
-            const res = window.CineAuth.loginUser({
-                email: emailVal,
-                password: passVal,
-                remember: rememberMe.checked
-            });
-            setLoading(loginSubmitBtn, false);
+        Promise.resolve(window.CineAuth.ready).then(function () {
+            setTimeout(function () {
+                const res = window.CineAuth.loginUser({
+                    email: emailVal,
+                    password: passVal,
+                    remember: rememberMe.checked
+                });
+                setLoading(loginSubmitBtn, false);
 
-            if (!res.ok) {
-                if (res.field) {
-                    setFieldError(res.field, res.message);
+                if (!res.ok) {
+                    if (res.field) {
+                        setFieldError(res.field, res.message);
+                    }
+                    showAlert('error', res.message);
+                    return;
                 }
-                showAlert('error', res.message);
-                return;
-            }
 
-            completeAuthRedirect(res.user);
-        }, 380);
+                completeAuthRedirect(res.user);
+            }, 380);
+        });
     });
 
     // Sign Up submission
@@ -378,25 +380,27 @@
         }
 
         setLoading(signupSubmitBtn, true);
-        setTimeout(function () {
-            const res = window.CineAuth.registerUser({
-                name: nameVal,
-                email: emailVal,
-                phone: phoneVal,
-                password: passVal
-            });
-            setLoading(signupSubmitBtn, false);
+        Promise.resolve(window.CineAuth.ready).then(function () {
+            setTimeout(function () {
+                const res = window.CineAuth.registerUser({
+                    name: nameVal,
+                    email: emailVal,
+                    phone: phoneVal,
+                    password: passVal
+                });
+                setLoading(signupSubmitBtn, false);
 
-            if (!res.ok) {
-                if (res.field) {
-                    setFieldError(res.field, res.message);
+                if (!res.ok) {
+                    if (res.field) {
+                        setFieldError(res.field, res.message);
+                    }
+                    showAlert('error', res.message);
+                    return;
                 }
-                showAlert('error', res.message);
-                return;
-            }
 
-            completeAuthRedirect(res.user);
-        }, 420);
+                completeAuthRedirect(res.user);
+            }, 420);
+        });
     });
 
     // Forgot Password submission
@@ -428,37 +432,41 @@
         }
 
         setLoading(resetSubmitBtn, true);
-        setTimeout(function () {
-            const res = window.CineAuth.resetPassword({
-                email: emailVal,
-                newPassword: newPass
-            });
-            setLoading(resetSubmitBtn, false);
+        Promise.resolve(window.CineAuth.ready).then(function () {
+            setTimeout(function () {
+                const res = window.CineAuth.resetPassword({
+                    email: emailVal,
+                    newPassword: newPass
+                });
+                setLoading(resetSubmitBtn, false);
 
-            if (!res.ok) {
-                if (res.field) {
-                    setFieldError(res.field, res.message);
+                if (!res.ok) {
+                    if (res.field) {
+                        setFieldError(res.field, res.message);
+                    }
+                    showAlert('error', res.message);
+                    return;
                 }
-                showAlert('error', res.message);
-                return;
-            }
 
-            switchMode('login');
-            loginEmail.value = emailVal;
-            loginPassword.value = '';
-            showAlert('success', 'Password updated! You can now sign in with your new password.');
-            loginPassword.focus();
-        }, 380);
+                switchMode('login');
+                loginEmail.value = emailVal;
+                loginPassword.value = '';
+                showAlert('success', 'Password updated! You can now sign in with your new password.');
+                loginPassword.focus();
+            }, 380);
+        });
     });
 
     // Social login buttons
     document.querySelectorAll('.social-btn').forEach(btn => {
         btn.addEventListener('click', function () {
             const provider = btn.dataset.social || 'Google';
-            const res = window.CineAuth.socialLogin(provider);
-            if (res.ok) {
-                completeAuthRedirect(res.user);
-            }
+            Promise.resolve(window.CineAuth.ready).then(function () {
+                const res = window.CineAuth.socialLogin(provider);
+                if (res.ok) {
+                    completeAuthRedirect(res.user);
+                }
+            });
         });
     });
 
