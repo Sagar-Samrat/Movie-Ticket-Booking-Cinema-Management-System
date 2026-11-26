@@ -1,0 +1,22 @@
+[
+  {
+    "id": "usr_demo_01",
+    "name": "Sagar Samrat",
+    "email": "demo@cineverse.com",
+    "phone": "9876543210",
+    "tier": "CineVerse Gold",
+    "provider": "email",
+    "passwordHash": "541a2465a8774f79",
+    "createdAt": "2026-09-01T10:00:00.000Z"
+  },
+  {
+    "id": "usr_member_02",
+    "name": "Aarav Mehta",
+    "email": "member@cineverse.com",
+    "phone": "9820112233",
+    "tier": "CineVerse Member",
+    "provider": "email",
+    "passwordHash": "a29c99eec876f3ba",
+    "createdAt": "2026-09-10T14:30:00.000Z"
+  }
+]
