@@ -4,289 +4,1426 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>CineVerse - Booking</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Booking CSS -->
     <link rel="stylesheet" href="../css/booking.css">
 </head>
 
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top cine-navbar">
-        <div class="container">
-            <a class="navbar-brand cine-logo" href="home.html">
-                <span class="logo-icon">🎬</span>
-                CineVerse
-            </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<!-- =====================================================
+                     NAVBAR
+===================================================== -->
 
-            <div class="collapse navbar-collapse" id="mainNavbar">
-                <ul class="navbar-nav ms-auto align-items-lg-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="home.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="movies.html">Movies</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#theatres">Theatres</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="food-and-beverages.html">Food &amp; Beverages</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="booking.html">My Bookings</a>
-                    </li>
-                    <li class="nav-item ms-lg-3">
-                        <a class="btn login-btn" href="#">Login</a>
-                    </li>
-                </ul>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top cine-navbar">
+
+    <div class="container">
+
+        <a class="navbar-brand cine-logo" href="home.html">
+            <span class="logo-icon">🎬</span>
+            CineVerse
+        </a>
+
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="movies.html">
+                        Movies
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#theatres">
+                        Theatres
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="food-and-beverages.html">
+                        Food &amp; Beverages
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active"
+                       href="booking.html">
+                        My Bookings
+                    </a>
+                </li>
+
+                <li class="nav-item ms-lg-3">
+
+                    <a class="btn login-btn" href="#">
+                        Login
+                    </a>
+
+                </li>
+
+            </ul>
+
         </div>
-    </nav>
 
-    <main class="booking-page">
-        <div class="container">
-            <section class="booking-hero">
-                <div class="hero-content">
-                    <p class="eyebrow">CINEVERSE BOOKING</p>
-                    <h1>Make It A <span>Movie Night.</span></h1>
-                    <p class="subtitle">
-                        Choose your theatre, showtime and favourite seats. Your cinematic experience starts here.
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+                  MAIN BOOKING PAGE
+===================================================== -->
+
+<main class="booking-page">
+
+<div class="container">
+
+
+<!-- =====================================================
+                         HERO
+===================================================== -->
+
+<section class="booking-hero">
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            CINEVERSE BOOKING
+        </p>
+
+        <h1>
+            Make It A <span>Movie Night.</span>
+        </h1>
+
+        <p class="subtitle">
+            Choose your movie, theatre, showtime and favourite seats.
+            Your cinematic experience starts here.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                    BOOKING STEPS
+===================================================== -->
+
+<div class="booking-steps">
+
+    <a href="#movie-selection"
+       class="step active">
+
+        <span class="step-number">
+            1
+        </span>
+
+        <span>
+            Movie
+        </span>
+
+    </a>
+
+
+    <a href="#show-selection"
+       class="step">
+
+        <span class="step-number">
+            2
+        </span>
+
+        <span>
+            Show
+        </span>
+
+    </a>
+
+
+    <a href="#seat-selection"
+       class="step">
+
+        <span class="step-number">
+            3
+        </span>
+
+        <span>
+            Seats
+        </span>
+
+    </a>
+
+
+    <a href="#payment-section"
+       class="step">
+
+        <span class="step-number">
+            4
+        </span>
+
+        <span>
+            Payment
+        </span>
+
+    </a>
+
+</div>
+
+
+
+<!-- =====================================================
+                    MOVIE SELECTION
+===================================================== -->
+
+<section class="booking-panel"
+         id="movie-selection">
+
+    <div class="panel-header">
+
+        <p class="section-tag">
+            SELECT MOVIE
+        </p>
+
+        <span class="mini-icon">
+            <i class="bi bi-film"></i>
+        </span>
+
+    </div>
+
+
+    <h2 class="panel-title">
+        Choose Your Movie
+    </h2>
+
+
+    <p class="selection-help">
+        Select a movie to continue with your booking.
+    </p>
+
+
+
+    <!-- MOVIE HORIZONTAL SCROLL -->
+
+    <div class="movie-scroll">
+
+
+        <!-- MOVIE 1 -->
+
+        <label class="movie-card">
+
+            <input type="radio"
+                   name="movie"
+                   value="Midnight Story"
+                   checked>
+
+
+            <div class="movie-card-content">
+
+                <div class="movie-poster-image midnight-story">
+                </div>
+
+
+                <div class="movie-card-info">
+
+                    <h3>
+                        Midnight Story
+                    </h3>
+
+                    <p>
+                        Action • Drama
                     </p>
-                </div>
-            </section>
 
-            <section class="booking-steps">
-                <div class="step active"><span class="step-number">1</span><span>Movie</span></div>
-                <div class="step"><span class="step-number">2</span><span>Show</span></div>
-                <div class="step"><span class="step-number">3</span><span>Seats</span></div>
-                <div class="step"><span class="step-number">4</span><span>Payment</span></div>
-            </section>
 
-            <section class="booking-panel">
-                <div class="panel-header">
-                    <p class="section-tag">SELECT MOVIE</p>
-                    <button class="mini-icon" aria-label="Trailer">
-                        <i class="bi bi-film"></i>
-                    </button>
-                </div>
+                    <div class="movie-small-info">
 
-                <h2 class="panel-title">Movie Details</h2>
+                        <span>
+                            <i class="bi bi-star-fill"></i>
+                            4.8
+                        </span>
 
-                <div class="movie-overview">
-                    <div class="movie-poster">
-                        <div class="poster-art"></div>
+                        <span>
+                            <i class="bi bi-clock"></i>
+                            2h 18m
+                        </span>
+
+                        <span>
+                            English
+                        </span>
+
                     </div>
 
-                    <div class="movie-info-block">
-                        <h3>Midnight Story</h3>
-                        <div class="meta-row">
-                            <span>Action</span>
-                            <span class="dot">•</span>
-                            <span>Drama</span>
-                        </div>
-                        <div class="movie-extra-info">
-                            <span><i class="bi bi-star-fill"></i> 4.8</span>
-                            <span><i class="bi bi-clock"></i> 2h 18m</span>
-                            <span>English</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="booking-panel">
-                <p class="section-tag">SELECT THEATRE</p>
-                <div class="theatre-grid">
-                    <button class="theatre-card selected">
-                        <h4>CineVerse IMAX</h4>
-                        <span>Downtown • IMAX</span>
-                    </button>
-                    <button class="theatre-card">
-                        <h4>CineVerse PVR</h4>
-                        <span>Central Mall • 4DX</span>
-                    </button>
-                    <button class="theatre-card">
-                        <h4>CineVerse Luxe</h4>
-                        <span>City Centre • Luxe</span>
-                    </button>
-                </div>
-            </section>
-
-            <section class="booking-panel">
-                <p class="section-tag">SELECT DATE</p>
-                <div class="date-grid">
-                    <button class="date-card active">
-                        <strong>21</strong>
-                        <span>MON</span>
-                    </button>
-                    <button class="date-card">
-                        <strong>22</strong>
-                        <span>TUE</span>
-                    </button>
-                    <button class="date-card">
-                        <strong>23</strong>
-                        <span>WED</span>
-                    </button>
-                    <button class="date-card">
-                        <strong>24</strong>
-                        <span>THU</span>
-                    </button>
-                    <button class="date-card">
-                        <strong>25</strong>
-                        <span>FRI</span>
-                    </button>
-                </div>
-            </section>
-
-            <div class="booking-footer-bar">
-                <div class="booking-copy">
-                    <p class="section-tag">YOUR BOOKING</p>
-                    <h3>Midnight Story</h3>
-                    <div class="booking-meta">CineVerse IMAX • 21 September 2026 • 10:30 AM</div>
-                    <div class="booking-seats">Seats: A1, A2</div>
                 </div>
 
-                <div class="booking-price-box">
-                    <span>Total</span>
-                    <strong>₹672</strong>
-                    <button class="checkout-btn">Proceed to Payment <i class="bi bi-arrow-right"></i></button>
-                </div>
             </div>
 
-            <section class="booking-panel">
-                <p class="section-tag">SELECT SHOWTIME</p>
-                <div class="showtime-grid">
-                    <button class="time-slot active">10:30 AM</button>
-                    <button class="time-slot">01:15 PM</button>
-                    <button class="time-slot">04:30 PM</button>
-                    <button class="time-slot">07:45 PM</button>
-                    <button class="time-slot">10:30 PM</button>
-                </div>
-            </section>
+        </label>
 
-            <section class="booking-panel seat-panel">
-                <p class="section-tag">SELECT SEATS</p>
-                <div class="screen"></div>
 
-                <div class="seat-layout">
-                    <div class="seat-row top-seat-row">
-                        <span></span>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                        <span>6</span>
-                        <span>7</span>
-                        <span>8</span>
-                    </div>
 
-                    <div class="seat-row">
-                        <span class="seat-label">A</span>
-                        <button class="seat available" data-seat="A1">1</button>
-                        <button class="seat available" data-seat="A2">2</button>
-                        <button class="seat available" data-seat="A3">3</button>
-                        <button class="seat available" data-seat="A4">4</button>
-                        <button class="seat available" data-seat="A5">5</button>
-                        <button class="seat available" data-seat="A6">6</button>
-                        <button class="seat available" data-seat="A7">7</button>
-                        <button class="seat available" data-seat="A8">8</button>
-                    </div>
+        <!-- MOVIE 2 -->
 
-                    <div class="seat-row">
-                        <span class="seat-label">B</span>
-                        <button class="seat available" data-seat="B1">1</button>
-                        <button class="seat selected" data-seat="B2">2</button>
-                        <button class="seat available" data-seat="B3">3</button>
-                        <button class="seat available" data-seat="B4">4</button>
-                        <button class="seat occupied" data-seat="B5" disabled>5</button>
-                        <button class="seat available" data-seat="B6">6</button>
-                        <button class="seat available" data-seat="B7">7</button>
-                        <button class="seat available" data-seat="B8">8</button>
-                    </div>
+        <label class="movie-card">
 
-                    <div class="seat-row">
-                        <span class="seat-label">C</span>
-                        <button class="seat available" data-seat="C1">1</button>
-                        <button class="seat available" data-seat="C2">2</button>
-                        <button class="seat selected" data-seat="C3">3</button>
-                        <button class="seat available" data-seat="C4">4</button>
-                        <button class="seat available" data-seat="C5">5</button>
-                        <button class="seat occupied" data-seat="C6" disabled>6</button>
-                        <button class="seat available" data-seat="C7">7</button>
-                        <button class="seat available" data-seat="C8">8</button>
-                    </div>
+            <input type="radio"
+                   name="movie"
+                   value="Shadow Run">
 
-                    <div class="seat-row">
-                        <span class="seat-label">D</span>
-                        <button class="seat available" data-seat="D1">1</button>
-                        <button class="seat available" data-seat="D2">2</button>
-                        <button class="seat available" data-seat="D3">3</button>
-                        <button class="seat available" data-seat="D4">4</button>
-                        <button class="seat occupied" data-seat="D5" disabled>5</button>
-                        <button class="seat occupied" data-seat="D6" disabled>6</button>
-                        <button class="seat available" data-seat="D7">7</button>
-                        <button class="seat available" data-seat="D8">8</button>
-                    </div>
+
+            <div class="movie-card-content">
+
+                <div class="movie-poster-image shadow-run">
                 </div>
 
-                <div class="legend">
-                    <span><i class="legend-box available"></i> Available</span>
-                    <span><i class="legend-box selected"></i> Selected</span>
-                    <span><i class="legend-box occupied"></i> Occupied</span>
-                </div>
-            </section>
 
-            <div class="booking-footer-bar final-footer">
-                <div class="booking-copy">
-                    <p class="section-tag">YOUR BOOKING</p>
-                    <h3>Midnight Story</h3>
-                    <div class="booking-meta">CineVerse IMAX • 21 September 2026 • 10:30 AM</div>
-                    <div class="booking-seats">Seats: <span id="summarySeats">A1, A2</span></div>
+                <div class="movie-card-info">
+
+                    <h3>
+                        Shadow Run
+                    </h3>
+
+                    <p>
+                        Action • Thriller
+                    </p>
+
+
+                    <div class="movie-small-info">
+
+                        <span>
+                            <i class="bi bi-star-fill"></i>
+                            4.6
+                        </span>
+
+                        <span>
+                            <i class="bi bi-clock"></i>
+                            2h 05m
+                        </span>
+
+                        <span>
+                            English
+                        </span>
+
+                    </div>
+
                 </div>
 
-                <div class="booking-price-box">
-                    <span>Total</span>
-                    <strong id="totalAmount">₹672</strong>
-                    <button class="checkout-btn">Proceed to Payment <i class="bi bi-arrow-right"></i></button>
-                </div>
             </div>
+
+        </label>
+
+
+
+        <!-- MOVIE 3 -->
+
+        <label class="movie-card">
+
+            <input type="radio"
+                   name="movie"
+                   value="Neon Hearts">
+
+
+            <div class="movie-card-content">
+
+                <div class="movie-poster-image neon-hearts">
+                </div>
+
+
+                <div class="movie-card-info">
+
+                    <h3>
+                        Neon Hearts
+                    </h3>
+
+                    <p>
+                        Romance • Drama
+                    </p>
+
+
+                    <div class="movie-small-info">
+
+                        <span>
+                            <i class="bi bi-star-fill"></i>
+                            4.5
+                        </span>
+
+                        <span>
+                            <i class="bi bi-clock"></i>
+                            2h 10m
+                        </span>
+
+                        <span>
+                            English
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </label>
+
+
+
+        <!-- MOVIE 4 -->
+
+        <label class="movie-card">
+
+            <input type="radio"
+                   name="movie"
+                   value="The Last Signal">
+
+
+            <div class="movie-card-content">
+
+                <div class="movie-poster-image last-signal">
+                </div>
+
+
+                <div class="movie-card-info">
+
+                    <h3>
+                        The Last Signal
+                    </h3>
+
+                    <p>
+                        Sci-Fi • Mystery
+                    </p>
+
+
+                    <div class="movie-small-info">
+
+                        <span>
+                            <i class="bi bi-star-fill"></i>
+                            4.7
+                        </span>
+
+                        <span>
+                            <i class="bi bi-clock"></i>
+                            2h 22m
+                        </span>
+
+                        <span>
+                            English
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </label>
+
+
+
+        <!-- MOVIE 5 -->
+
+        <label class="movie-card">
+
+            <input type="radio"
+                   name="movie"
+                   value="Dark Horizon">
+
+
+            <div class="movie-card-content">
+
+                <div class="movie-poster-image dark-horizon">
+                </div>
+
+
+                <div class="movie-card-info">
+
+                    <h3>
+                        Dark Horizon
+                    </h3>
+
+                    <p>
+                        Horror • Thriller
+                    </p>
+
+
+                    <div class="movie-small-info">
+
+                        <span>
+                            <i class="bi bi-star-fill"></i>
+                            4.4
+                        </span>
+
+                        <span>
+                            <i class="bi bi-clock"></i>
+                            1h 58m
+                        </span>
+
+                        <span>
+                            English
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </label>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                    THEATRE SELECTION
+===================================================== -->
+
+<section class="booking-panel"
+         id="theatres">
+
+    <p class="section-tag">
+        SELECT THEATRE
+    </p>
+
+
+    <p class="selection-help">
+        Choose your preferred cinema.
+    </p>
+
+
+    <div class="theatre-grid">
+
+
+        <!-- THEATRE 1 -->
+
+        <label class="theatre-card">
+
+            <input type="radio"
+                   name="theatre"
+                   value="CineVerse IMAX"
+                   checked>
+
+
+            <div>
+
+                <h4>
+                    CineVerse IMAX
+                </h4>
+
+                <span>
+                    Downtown • IMAX
+                </span>
+
+            </div>
+
+        </label>
+
+
+
+        <!-- THEATRE 2 -->
+
+        <label class="theatre-card">
+
+            <input type="radio"
+                   name="theatre"
+                   value="CineVerse PVR">
+
+
+            <div>
+
+                <h4>
+                    CineVerse PVR
+                </h4>
+
+                <span>
+                    Central Mall • 4DX
+                </span>
+
+            </div>
+
+        </label>
+
+
+
+        <!-- THEATRE 3 -->
+
+        <label class="theatre-card">
+
+            <input type="radio"
+                   name="theatre"
+                   value="CineVerse Luxe">
+
+
+            <div>
+
+                <h4>
+                    CineVerse Luxe
+                </h4>
+
+                <span>
+                    City Centre • Luxe
+                </span>
+
+            </div>
+
+        </label>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                      DATE SELECTION
+===================================================== -->
+<!-- DATE SELECTION -->
+<section class="booking-section">
+
+    <h2>Select Date</h2>
+
+    <div class="date-picker">
+
+        <label for="bookingDate">Choose your date:</label>
+
+        <input 
+            type="date" 
+            id="bookingDate" 
+            name="date"
+            value="2026-09-21"
+            min="2026-09-21"
+        >
+
+    </div>
+
+</section>
+<!-- =====================================================
+                     SHOWTIME SELECTION
+===================================================== -->
+
+<section class="booking-panel"
+         id="show-selection">
+
+    <p class="section-tag">
+        SELECT SHOWTIME
+    </p>
+
+
+    <p class="selection-help">
+        Select a convenient showtime.
+    </p>
+
+
+    <div class="showtime-grid">
+
+
+        <label class="time-slot">
+
+            <input type="radio"
+                   name="showtime"
+                   value="10:30 AM"
+                   checked>
+
+            <span>
+                10:30 AM
+            </span>
+
+        </label>
+
+
+
+        <label class="time-slot">
+
+            <input type="radio"
+                   name="showtime"
+                   value="01:15 PM">
+
+            <span>
+                01:15 PM
+            </span>
+
+        </label>
+
+
+
+        <label class="time-slot">
+
+            <input type="radio"
+                   name="showtime"
+                   value="04:30 PM">
+
+            <span>
+                04:30 PM
+            </span>
+
+        </label>
+
+
+
+        <label class="time-slot">
+
+            <input type="radio"
+                   name="showtime"
+                   value="07:45 PM">
+
+            <span>
+                07:45 PM
+            </span>
+
+        </label>
+
+
+
+        <label class="time-slot">
+
+            <input type="radio"
+                   name="showtime"
+                   value="10:30 PM">
+
+            <span>
+                10:30 PM
+            </span>
+
+        </label>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                  BOOKING INFORMATION BAR
+===================================================== -->
+
+<div class="booking-footer-bar">
+
+
+    <div class="booking-copy">
+
+        <p class="section-tag">
+            YOUR BOOKING
+        </p>
+
+
+        <h3 id="bookingMovie">
+            Midnight Story
+        </h3>
+
+
+        <div class="booking-meta"
+             id="bookingDetails">
+
+            CineVerse IMAX •
+            21 September 2026 •
+            10:30 AM
+
         </div>
-    </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const seatButtons = document.querySelectorAll('.seat.available, .seat.selected');
-        const summarySeats = document.getElementById('summarySeats');
-        const totalAmount = document.getElementById('totalAmount');
 
-        function updateBookingSummary() {
-            const selectedSeats = [...document.querySelectorAll('.seat.selected')].map(seat => seat.dataset.seat);
-            summarySeats.textContent = selectedSeats.length ? selectedSeats.join(', ') : 'None';
+        <div class="booking-seats">
 
-            const ticketPrice = selectedSeats.length * 336;
-            totalAmount.textContent = '₹' + ticketPrice;
-        }
+            Seats:
+            <span id="summarySeats">
+                A1, A2
+            </span>
 
-        seatButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                if (button.classList.contains('selected')) {
-                    button.classList.remove('selected');
-                    button.classList.add('available');
-                } else if (!button.disabled) {
-                    button.classList.remove('available');
-                    button.classList.add('selected');
-                }
-                updateBookingSummary();
-            });
-        });
+        </div>
 
-        updateBookingSummary();
-    </script>
+    </div>
+
+
+
+    <div class="booking-price-box">
+
+        <span>
+            Total
+        </span>
+
+
+        <strong id="totalAmount">
+            ₹672
+        </strong>
+
+
+        <a href="#payment-section"
+           class="checkout-btn">
+
+            Proceed to Payment
+
+            <i class="bi bi-arrow-right"></i>
+
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+                      SEAT SELECTION
+===================================================== -->
+
+<section class="booking-panel seat-panel"
+         id="seat-selection">
+
+    <p class="section-tag">
+        SELECT SEATS
+    </p>
+
+
+    <p class="selection-help">
+        Choose your preferred seats.
+    </p>
+
+
+    <div class="screen"></div>
+
+
+    <div class="seat-layout">
+
+
+        <!-- COLUMN NUMBERS -->
+
+        <div class="seat-row top-seat-row">
+
+            <span></span>
+
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span>7</span>
+            <span>8</span>
+
+        </div>
+
+
+
+        <!-- ROW A -->
+
+        <div class="seat-row">
+
+            <span class="seat-label">
+                A
+            </span>
+
+
+            <input type="checkbox"
+                   id="A1">
+
+            <label class="seat available"
+                   for="A1"
+                   data-seat="A1">
+                1
+            </label>
+
+
+            <input type="checkbox"
+                   id="A2">
+
+            <label class="seat available"
+                   for="A2"
+                   data-seat="A2">
+                2
+            </label>
+
+
+            <input type="checkbox"
+                   id="A3">
+
+            <label class="seat available"
+                   for="A3"
+                   data-seat="A3">
+                3
+            </label>
+
+
+            <input type="checkbox"
+                   id="A4">
+
+            <label class="seat available"
+                   for="A4"
+                   data-seat="A4">
+                4
+            </label>
+
+
+            <input type="checkbox"
+                   id="A5">
+
+            <label class="seat available"
+                   for="A5"
+                   data-seat="A5">
+                5
+            </label>
+
+
+            <input type="checkbox"
+                   id="A6">
+
+            <label class="seat available"
+                   for="A6"
+                   data-seat="A6">
+                6
+            </label>
+
+
+            <input type="checkbox"
+                   id="A7">
+
+            <label class="seat available"
+                   for="A7"
+                   data-seat="A7">
+                7
+            </label>
+
+
+            <input type="checkbox"
+                   id="A8">
+
+            <label class="seat available"
+                   for="A8"
+                   data-seat="A8">
+                8
+            </label>
+
+        </div>
+
+
+
+        <!-- ROW B -->
+
+        <div class="seat-row">
+
+            <span class="seat-label">
+                B
+            </span>
+
+
+            <input type="checkbox"
+                   id="B1">
+
+            <label class="seat available"
+                   for="B1"
+                   data-seat="B1">
+                1
+            </label>
+
+
+            <input type="checkbox"
+                   id="B2">
+
+            <label class="seat available"
+                   for="B2"
+                   data-seat="B2">
+                2
+            </label>
+
+
+            <input type="checkbox"
+                   id="B3">
+
+            <label class="seat available"
+                   for="B3"
+                   data-seat="B3">
+                3
+            </label>
+
+
+            <input type="checkbox"
+                   id="B4">
+
+            <label class="seat available"
+                   for="B4"
+                   data-seat="B4">
+                4
+            </label>
+
+
+            <input type="checkbox"
+                   id="B5"
+                   disabled>
+
+            <label class="seat occupied"
+                   for="B5"
+                   data-seat="B5">
+                5
+            </label>
+
+
+            <input type="checkbox"
+                   id="B6">
+
+            <label class="seat available"
+                   for="B6"
+                   data-seat="B6">
+                6
+            </label>
+
+
+            <input type="checkbox"
+                   id="B7">
+
+            <label class="seat available"
+                   for="B7"
+                   data-seat="B7">
+                7
+            </label>
+
+
+            <input type="checkbox"
+                   id="B8">
+
+            <label class="seat available"
+                   for="B8"
+                   data-seat="B8">
+                8
+            </label>
+
+        </div>
+
+
+
+        <!-- ROW C -->
+
+        <div class="seat-row">
+
+            <span class="seat-label">
+                C
+            </span>
+
+
+            <input type="checkbox"
+                   id="C1">
+
+            <label class="seat available"
+                   for="C1"
+                   data-seat="C1">
+                1
+            </label>
+
+
+            <input type="checkbox"
+                   id="C2">
+
+            <label class="seat available"
+                   for="C2"
+                   data-seat="C2">
+                2
+            </label>
+
+
+            <input type="checkbox"
+                   id="C3">
+
+            <label class="seat available"
+                   for="C3"
+                   data-seat="C3">
+                3
+            </label>
+
+
+            <input type="checkbox"
+                   id="C4">
+
+            <label class="seat available"
+                   for="C4"
+                   data-seat="C4">
+                4
+            </label>
+
+
+            <input type="checkbox"
+                   id="C5">
+
+            <label class="seat available"
+                   for="C5"
+                   data-seat="C5">
+                5
+            </label>
+
+
+            <input type="checkbox"
+                   id="C6"
+                   disabled>
+
+            <label class="seat occupied"
+                   for="C6"
+                   data-seat="C6">
+                6
+            </label>
+
+
+            <input type="checkbox"
+                   id="C7">
+
+            <label class="seat available"
+                   for="C7"
+                   data-seat="C7">
+                7
+            </label>
+
+
+            <input type="checkbox"
+                   id="C8">
+
+            <label class="seat available"
+                   for="C8"
+                   data-seat="C8">
+                8
+            </label>
+
+        </div>
+
+
+
+        <!-- ROW D -->
+
+        <div class="seat-row">
+
+            <span class="seat-label">
+                D
+            </span>
+
+
+            <input type="checkbox"
+                   id="D1">
+
+            <label class="seat available"
+                   for="D1"
+                   data-seat="D1">
+                1
+            </label>
+
+
+            <input type="checkbox"
+                   id="D2">
+
+            <label class="seat available"
+                   for="D2"
+                   data-seat="D2">
+                2
+            </label>
+
+
+            <input type="checkbox"
+                   id="D3">
+
+            <label class="seat available"
+                   for="D3"
+                   data-seat="D3">
+                3
+            </label>
+
+
+            <input type="checkbox"
+                   id="D4">
+
+            <label class="seat available"
+                   for="D4"
+                   data-seat="D4">
+                4
+            </label>
+
+
+            <input type="checkbox"
+                   id="D5"
+                   disabled>
+
+            <label class="seat occupied"
+                   for="D5"
+                   data-seat="D5">
+                5
+            </label>
+
+
+            <input type="checkbox"
+                   id="D6"
+                   disabled>
+
+            <label class="seat occupied"
+                   for="D6"
+                   data-seat="D6">
+                6
+            </label>
+
+
+            <input type="checkbox"
+                   id="D7">
+
+            <label class="seat available"
+                   for="D7"
+                   data-seat="D7">
+                7
+            </label>
+
+
+            <input type="checkbox"
+                   id="D8">
+
+            <label class="seat available"
+                   for="D8"
+                   data-seat="D8">
+                8
+            </label>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SEAT LEGEND -->
+
+    <div class="legend">
+
+        <span>
+
+            <i class="legend-box available"></i>
+
+            Available
+
+        </span>
+
+
+        <span>
+
+            <i class="legend-box selected"></i>
+
+            Selected
+
+        </span>
+
+
+        <span>
+
+            <i class="legend-box occupied"></i>
+
+            Occupied
+
+        </span>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                    BOOKING SUMMARY
+===================================================== -->
+
+<section class="booking-panel final-summary">
+
+    <p class="section-tag">
+        BOOKING SUMMARY
+    </p>
+
+
+    <h2 class="panel-title">
+        Review Your Booking
+    </h2>
+
+
+    <div class="summary-grid">
+
+
+        <div>
+
+            <span>
+                Movie
+            </span>
+
+            <strong id="summaryMovie">
+                Midnight Story
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Theatre
+            </span>
+
+            <strong id="summaryTheatre">
+                CineVerse IMAX
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Date
+            </span>
+
+            <strong id="summaryDate">
+                21 September 2026
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Showtime
+            </span>
+
+            <strong id="summaryShowtime">
+                10:30 AM
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Seats
+            </span>
+
+            <strong id="summarySeats">
+                A1, A2
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Food
+            </span>
+
+            <strong id="summaryFood">
+                ₹0
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                       PAYMENT
+===================================================== -->
+
+<section class="booking-panel payment-panel"
+         id="payment-section">
+
+    <p class="section-tag">
+        PAYMENT
+    </p>
+
+
+    <h2 class="panel-title">
+        Ready To Pay?
+    </h2>
+
+
+    <div class="payment-box">
+
+
+        <div class="payment-info">
+
+            <p>
+                Your selected movie, theatre, showtime,
+                seats and food will be included in your
+                final booking amount.
+            </p>
+
+
+            <div class="payment-total">
+
+                <span>
+                    Amount Payable
+                </span>
+
+
+                <strong id="paymentTotal">
+                    ₹672
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <a href="#payment-section"
+           class="checkout-btn">
+
+            Continue to Payment
+
+            <i class="bi bi-credit-card"></i>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+</div>
+
+</main>
+
+
+
+<!-- =====================================================
+                   BOOTSTRAP JAVASCRIPT
+===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<!-- =====================================================
+                   YOUR JAVASCRIPT
+===================================================== -->
+
+<script src="../js/booking.js">
+</script>
+
+
 </body>
 
 </html>
