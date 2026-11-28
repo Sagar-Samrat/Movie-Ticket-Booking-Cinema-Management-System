@@ -55,10 +55,25 @@
             return '';
         }
         const trimmed = raw.trim();
-        if (/^[a-zA-Z0-9_-]+\.html$/.test(trimmed)) {
-            return trimmed;
+        const basePage = trimmed.split(/[?#]/)[0];
+        if (!/^[a-zA-Z0-9_-]+\.html$/.test(basePage) || /[\r\n<>]/.test(trimmed)) {
+            return '';
         }
-        return '';
+        return trimmed;
+    }
+
+    function getRedirectNoticeMessage() {
+        if (!redirectTarget) {
+            return '';
+        }
+        const basePage = redirectTarget.split(/[?#]/)[0];
+        if (basePage === 'booking.html') {
+            return 'Please sign in or create an account first to book tickets.';
+        }
+        if (basePage === 'food-and-beverages.html') {
+            return 'Please sign in or create an account first to order food & beverages.';
+        }
+        return 'Please sign in or create an account to continue.';
     }
 
     function showAlert(type, message) {
@@ -485,9 +500,11 @@
     const existingSession = window.CineAuth.getSession();
     if (existingSession) {
         showSignedInState(existingSession);
-    } else if (params.get('mode') === 'signup') {
-        switchMode('signup');
     } else {
-        switchMode('login');
+        switchMode(params.get('mode') === 'signup' ? 'signup' : 'login');
+        const notice = getRedirectNoticeMessage();
+        if (notice) {
+            showAlert('info', notice);
+        }
     }
 })();

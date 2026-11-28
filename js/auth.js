@@ -3,6 +3,8 @@
 
     const USERS_KEY = 'cineverse_users_v1';
     const SESSION_KEY = 'cineverse_session_v1';
+    const FOOD_CART_KEY = 'cineverse_food_cart_v1';
+    const FOOD_TOTAL_KEY = 'foodTotal';
 
     function safeGet(storage, key) {
         try {
@@ -191,6 +193,23 @@
     function logout() {
         safeRemove(localStorage, SESSION_KEY);
         safeRemove(sessionStorage, SESSION_KEY);
+        safeRemove(localStorage, FOOD_CART_KEY);
+        safeRemove(localStorage, FOOD_TOTAL_KEY);
+    }
+
+    function buildLoginRedirectUrl(redirectTarget) {
+        const currentPage = (window.location.pathname.split('/').pop() || 'home.html') + (window.location.search || '');
+        const target = redirectTarget || currentPage;
+        return 'login.html?redirect=' + encodeURIComponent(target);
+    }
+
+    function requireAuth(redirectTarget) {
+        const session = getSession();
+        if (session) {
+            return session;
+        }
+        window.location.replace(buildLoginRedirectUrl(redirectTarget));
+        return null;
     }
 
     function registerUser({ name, email, phone, password }) {
@@ -490,6 +509,63 @@
         loginEl.replaceWith(wrapper);
     }
 
+    function bindQuickFoodButtons() {
+        // Home page food cards have buttons but no #cartItems container
+        if (!document.getElementById('cartItems')) {
+            document.querySelectorAll('.food-section .food-card button').forEach(function (button) {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    if (!getSession()) {
+                        window.location.href = buildLoginRedirectUrl('food-and-beverages.html');
+                        return;
+                    }
+                    const card = button.closest('.food-card');
+                    const nameEl = card ? card.querySelector('h4') : null;
+                    const priceEl = card ? card.querySelector('.food-bottom strong') : null;
+                    if (nameEl && priceEl) {
+                        const name = nameEl.textContent.trim();
+                        const price = parseInt(priceEl.textContent.replace(/[^\d]/g, ''), 10) || 0;
+                        if (price > 0) {
+                            let cart = [];
+                            try {
+                                const saved = JSON.parse(safeGet(localStorage, FOOD_CART_KEY) || '[]');
+                                if (Array.isArray(saved)) {
+                                    cart = saved;
+                                }
+                            } catch (err) {
+                                cart = [];
+                            }
+                            const existing = cart.find(function (item) {
+                                return item.name === name;
+                            });
+                            if (existing) {
+                                existing.quantity += 1;
+                            } else {
+                                cart.push({ name: name, price: price, quantity: 1 });
+                            }
+                            const total = cart.reduce(function (sum, item) {
+                                return sum + item.price * item.quantity;
+                            }, 0);
+                            safeSet(localStorage, FOOD_CART_KEY, JSON.stringify(cart));
+                            safeSet(localStorage, FOOD_TOTAL_KEY, String(total));
+                        }
+                    }
+                    window.location.href = 'food-and-beverages.html';
+                });
+            });
+        }
+
+        // Movies page food section "Add +" links
+        document.querySelectorAll('.food-grid .book-btn').forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                if (!getSession()) {
+                    e.preventDefault();
+                    window.location.href = buildLoginRedirectUrl('food-and-beverages.html');
+                }
+            });
+        });
+    }
+
     window.CineAuth = {
         ready: readyPromise,
         getUsers: getUsers,
@@ -499,9 +575,14 @@
         resetPassword: resetPassword,
         getSession: getSession,
         logout: logout,
+        buildLoginRedirectUrl: buildLoginRedirectUrl,
+        requireAuth: requireAuth,
         getInitials: getInitials,
         updateNavbarAuth: updateNavbarAuth
     };
 
-    document.addEventListener('DOMContentLoaded', updateNavbarAuth);
+    document.addEventListener('DOMContentLoaded', function () {
+        updateNavbarAuth();
+        bindQuickFoodButtons();
+    });
 })();

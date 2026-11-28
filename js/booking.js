@@ -2,6 +2,98 @@
 // CINEVERSE BOOKING - JAVASCRIPT
 // ======================================================
 
+(function () {
+    'use strict';
+
+    const PENDING_BOOKING_KEY = 'cineverse_pending_booking_v1';
+
+    function getActiveSession() {
+        if (window.CineAuth && typeof window.CineAuth.getSession === 'function') {
+            return window.CineAuth.getSession();
+        }
+        return null;
+    }
+
+    function redirectToLogin() {
+        const url = window.CineAuth && typeof window.CineAuth.buildLoginRedirectUrl === 'function'
+            ? window.CineAuth.buildLoginRedirectUrl()
+            : 'login.html?redirect=' + encodeURIComponent('booking.html' + (window.location.search || ''));
+        window.location.href = url;
+    }
+
+    function savePendingBooking() {
+        try {
+            const payload = {
+                movie: getSelectedMovie(),
+                theatre: getSelectedTheatre(),
+                date: getSelectedDate(),
+                showtime: getSelectedShowtime(),
+                seats: getSelectedSeats()
+            };
+            sessionStorage.setItem(PENDING_BOOKING_KEY, JSON.stringify(payload));
+        } catch (err) {
+            /* ignore storage errors */
+        }
+    }
+
+    function restorePendingBooking() {
+        if (!getActiveSession()) {
+            return;
+        }
+        let raw = null;
+        try {
+            raw = sessionStorage.getItem(PENDING_BOOKING_KEY);
+            if (!raw) {
+                return;
+            }
+            sessionStorage.removeItem(PENDING_BOOKING_KEY);
+        } catch (err) {
+            return;
+        }
+
+        try {
+            const pending = JSON.parse(raw);
+            if (!pending || typeof pending !== 'object') {
+                return;
+            }
+
+            if (pending.movie) {
+                movieOptions.forEach(function (el) {
+                    if (el.value === pending.movie) {
+                        el.checked = true;
+                    }
+                });
+            }
+            if (pending.theatre) {
+                theatreOptions.forEach(function (el) {
+                    if (el.value === pending.theatre) {
+                        el.checked = true;
+                    }
+                });
+            }
+            if (pending.date && bookingDate && pending.date !== 'No date selected') {
+                bookingDate.value = pending.date;
+            }
+            if (pending.showtime) {
+                showtimeOptions.forEach(function (el) {
+                    if (el.value === pending.showtime) {
+                        el.checked = true;
+                    }
+                });
+            }
+            if (Array.isArray(pending.seats)) {
+                const seatSet = new Set(pending.seats);
+                seatOptions.forEach(function (el) {
+                    if (!el.disabled) {
+                        el.checked = seatSet.has(el.id);
+                    }
+                });
+            }
+        } catch (err) {
+            /* ignore malformed pending booking */
+        }
+    }
+
 
 // ======================================================
 // 1. SEAT PRICES
@@ -514,6 +606,13 @@ paymentButtons.forEach(function(button) {
 
         event.preventDefault();
 
+        const session = getActiveSession();
+        if (!session) {
+            savePendingBooking();
+            redirectToLogin();
+            return;
+        }
+
         const selectedSeats =
             getSelectedSeats();
 
@@ -534,6 +633,9 @@ paymentButtons.forEach(function(button) {
 
         alert(
             "Booking Summary\n\n" +
+
+            "Booked By: " +
+            session.name + " (" + session.email + ")\n" +
 
             "Movie: " +
             getSelectedMovie() +
@@ -566,4 +668,6 @@ paymentButtons.forEach(function(button) {
 // 19. RUN WHEN PAGE LOADS
 // ======================================================
 
+restorePendingBooking();
 updateBookingSummary();
+})();

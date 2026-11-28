@@ -1,4 +1,7 @@
 
+const FOOD_CART_KEY = "cineverse_food_cart_v1";
+const FOOD_TOTAL_KEY = "foodTotal";
+
 let cart = [];
 
 let cartBox = document.querySelector(".cart-box");
@@ -19,8 +22,44 @@ function checkLogin() {
         return true;
     }
 
-    window.location.href = "login.html?redirect=food-and-beverages.html";
+    if (window.CineAuth && typeof window.CineAuth.buildLoginRedirectUrl === "function") {
+        window.location.href = window.CineAuth.buildLoginRedirectUrl("food-and-beverages.html");
+    } else {
+        window.location.href = "login.html?redirect=food-and-beverages.html";
+    }
     return false;
+}
+
+function saveCartState() {
+    if (!(window.CineAuth && window.CineAuth.getSession())) {
+        return;
+    }
+    try {
+        const total = cart.reduce(function (sum, item) {
+            return sum + item.price * item.quantity;
+        }, 0);
+        localStorage.setItem(FOOD_CART_KEY, JSON.stringify(cart));
+        localStorage.setItem(FOOD_TOTAL_KEY, String(total));
+    } catch (err) {
+        /* ignore storage errors */
+    }
+}
+
+function loadCartState() {
+    if (!(window.CineAuth && window.CineAuth.getSession())) {
+        cart = [];
+        return;
+    }
+    try {
+        const saved = JSON.parse(localStorage.getItem(FOOD_CART_KEY) || "[]");
+        if (Array.isArray(saved)) {
+            cart = saved.filter(function (item) {
+                return item && item.name && Number(item.price) > 0 && Number(item.quantity) > 0;
+            });
+        }
+    } catch (err) {
+        cart = [];
+    }
 }
 
 
@@ -69,6 +108,7 @@ function addToCart(name, price) {
         });
     }
 
+    saveCartState();
     updateCards();
     displayCart();
 }
@@ -162,11 +202,13 @@ function updateCards() {
 // CARD PLUS MINUS
 function changeCardQty(name, amount) {
 
-    if (amount > 0 && !checkLogin()) return;
+    if (!checkLogin()) return;
 
     let item = cart.find(function(i) {
         return i.name === name;
     });
+
+    if (!item) return;
 
     item.quantity += amount;
 
@@ -174,6 +216,7 @@ function changeCardQty(name, amount) {
         cart.splice(cart.indexOf(item), 1);
     }
 
+    saveCartState();
     updateCards();
     displayCart();
 
@@ -233,6 +276,18 @@ function displayCart() {
         <h3 style="text-align:right;color:#e50914;">
             Total Bill: ₹${total}
         </h3>
+        <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:16px; flex-wrap:wrap;">
+            <button onclick="confirmFoodOrder()"
+            style="background:#e50914;color:white;border:0;
+            padding:10px 20px;border-radius:6px;font-weight:bold;cursor:pointer;">
+                Confirm Food Order
+            </button>
+            <a href="booking.html"
+            style="background:#303030;color:white;text-decoration:none;
+            padding:10px 20px;border-radius:6px;font-weight:bold;display:inline-block;">
+                Book Tickets With Food
+            </a>
+        </div>
     `;
 
     cartItems.innerHTML = output;
@@ -240,10 +295,39 @@ function displayCart() {
 }
 
 
+// CONFIRM FOOD ORDER
+function confirmFoodOrder() {
+
+    if (!checkLogin()) return;
+
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    saveCartState();
+
+    const session = window.CineAuth.getSession();
+    const total = cart.reduce(function (sum, item) {
+        return sum + item.price * item.quantity;
+    }, 0);
+    const itemsSummary = cart.map(function (item) {
+        return item.name + " x" + item.quantity + " (₹" + (item.price * item.quantity) + ")";
+    }).join("\n");
+
+    alert(
+        "Food Order Confirmed!\n\n" +
+        "Customer: " + session.name + " (" + session.email + ")\n\n" +
+        itemsSummary +
+        "\n\nTotal Amount: ₹" + total
+    );
+}
+
+
 // CART PLUS MINUS
 function changeCartQty(index, amount) {
 
-    if (amount > 0 && !checkLogin()) return;
+    if (!checkLogin()) return;
 
     cart[index].quantity += amount;
 
@@ -251,6 +335,7 @@ function changeCartQty(index, amount) {
         cart.splice(index, 1);
     }
 
+    saveCartState();
     displayCart();
     updateCards();
 
@@ -260,8 +345,11 @@ function changeCartQty(index, amount) {
 // REMOVE ITEM
 function removeItem(index) {
 
+    if (!checkLogin()) return;
+
     cart.splice(index, 1);
 
+    saveCartState();
     displayCart();
     updateCards();
 
@@ -270,6 +358,8 @@ function removeItem(index) {
 
 // VIEW CART
 viewCartBtn.addEventListener("click", function() {
+
+    if (!checkLogin()) return;
 
     if (cartItems.style.display === "none") {
 
@@ -287,3 +377,6 @@ viewCartBtn.addEventListener("click", function() {
     }
 
 });
+
+loadCartState();
+updateCards();
